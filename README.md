@@ -1,14 +1,17 @@
 # The Problem
-I was having a problem where I wanted to synchronize my files from backup on my linux nas/server (WS) thing to my ssd, and I wanted to talk about my experience and solution. I started out with using rsync to sync the entire directory over my target computer, RP400. The initial transfer took a long time, but I figured it would get faster after the initial update, since it would only have to sync files that are different between the two drives.
 
-After I started changing around my file sets, I found that there is no real 'caching' that happens with rsync, so each time you run the script to sync, you have to read every file that's potentially going to be synced. If you're comparing checksum, that takes a big chunk of time. Even if you use 'size-only' or other built-in options to limit the number of things that you're going to transfer, it still takes a while for rsync to actually do the thing. 
-
-## How Can I synchronize only the files between two file systems?
+## How Can I synchronize files between two file systems?
 - Select only the files I want
 - Select only files that are different
 - Ignore files that need to stay
 - Remove files that need to be removed
 - Backup files that need to be backed up
+
+
+I was having a problem where I wanted to synchronize my files from backup on my linux nas/server (WS) thing to my ssd, and I wanted to talk about my experience and solution. I started out with using rsync to sync the entire directory over my target computer, RP400. The initial transfer took a long time, but I figured it would get faster after the initial update, since it would only have to sync files that are different between the two drives.
+
+After I started changing around my file sets, I found that there is no real 'caching' that happens with rsync, so each time you run the script to sync, you have to read every file that's potentially going to be synced. If you're comparing checksum, that takes a big chunk of time. Even if you use 'size-only' or other built-in options to limit the number of things that you're going to transfer, it still takes a while for rsync to actually do the thing. 
+
 
 ### Project Restrictions
 - Do whole-file copies; with no partial transfers.
